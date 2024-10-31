@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './components/header';
 import Sidebar from './components/sidebar';
 import TaskList from './components/tasklist';
@@ -17,34 +17,38 @@ function App() {
   const maxTasksPerPage = 9;
 
 
-  const loadStorage = () => {
+  const loadStorage =useCallback(() => {
     const savedProjects = JSON.parse(localStorage.getItem('projects')) || [];
     const savedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || [];
     const savedCurrentProjectId = JSON.parse(localStorage.getItem('currentProjectId'));
     setProjects(savedProjects);
     setAllTasks(savedAllTasks);
     setCurrentProjectId(savedCurrentProjectId);
-  };
+  }, []);
+
+
+  const saveStorage =useCallback(() => {
+    localStorage.setItem('projects', JSON.stringify(projects));
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
+    localStorage.setItem('currentProjectId', currentProjectId);
+  }, [projects, allTasks, currentProjectId]);
+
 
   useEffect(() => {
     loadStorage();
-  }, []);
+  }, [loadStorage]);
 
   useEffect(() => {
-    const savedProjects = JSON.parse(localStorage.getItem('projects')) || [];
-    const savedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || [];
-    const savedCurrentProjectId = JSON.parse(localStorage.getItem('currentProjectId'));
-    setProjects(savedProjects);
-    setAllTasks(savedAllTasks);
-    setCurrentProjectId(savedCurrentProjectId);
-  }, [projects, allTasks, currentProjectId]);
+    saveStorage();
+  }, [saveStorage]);
 
   const addProject = (projectName) => {
-    const newProject = { id: Date.now(), name: projectName, tasks: [] };
+    const newProject = { class: 'project ', id: Date.now(), name: projectName, tasks: [] };
     setProjects([...projects, newProject]);
   };
 
   const selectProject = (projectId) => {
+
     setCurrentProjectId(projectId);
   };
 
@@ -58,8 +62,6 @@ function App() {
     });
     setAllTasks((prevAllTasks) => [...prevAllTasks, { ...taskData, id: Date.now() }]);
   };
-
-  
 
   const handleTabChange = (newTab) => {
     setCurrentTab(newTab);

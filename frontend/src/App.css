@@ -115,7 +115,7 @@ background-clip: content-box;
 background-color: #000000;
 }
 
-.project{
+.project-item{
   position: relative;
   width: 99%;
   height: 40px;
@@ -127,7 +127,7 @@ background-color: #000000;
   align-items: center;
   font-size: 15px;
   padding-left: 24%;
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
 }
 .taskform{
   width: 90%;
@@ -157,8 +157,6 @@ background-color: #000000;
   margin-top: 30px;
 }
 
-
-
 @font-face {
   font-family: myfont;
   src: url(../public/fonts/ar.ttf);
@@ -168,7 +166,7 @@ background-color: #000000;
   src: url(../public/fonts/ab.ttf);
 }
 body{
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
 }
 #na1, #na2{
   display: none;
@@ -176,12 +174,12 @@ body{
 }
 p, a, label, legend{
       color: black;
-      font-family: myfont;
+      font-family: 'myfont', sans-serif;
 }
 legend{
   font-size: 26px;
   margin-bottom: 20px;
-  font-family: myfontbold;
+  font-family: 'myfontbold', sans-serif;
   margin-top: 10px;
 }
 .pheader{
@@ -189,7 +187,7 @@ legend{
   margin-left: 40px;
   position: absolute;
   left: -1%;
-  font-family: myfontbold;
+  font-family: 'myfontbold', sans-serif;
 }
 
 .task{
@@ -208,7 +206,7 @@ legend{
   align-content: center;
   align-items: center;
   font-size: 17px;
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
   box-shadow: 1px 1px 1px 1px black;
 }
 .task:hover{
@@ -225,7 +223,7 @@ legend{
   background-color: rgb(189, 189, 192);
   cursor:pointer;
 }
-.project:hover{
+.project-item:hover{
   background-color: rgb(189, 189, 192);
   cursor:pointer;
 
@@ -238,11 +236,28 @@ legend{
 .selectedtab{
   background-color: rgb(189, 189, 192);
 }
-.option a{
-  margin-top: 4%;
+.iconname{
+  font-family: 'myfont', sans-serif;
+  background: none;
+  border: none;
+  cursor:pointer;
+  padding: 0;
+  margin: 0;
   margin-left: 6px;
   font-size: 15px;
 }
+
+.headertext{
+  margin-left: 6px;
+  font-family: 'myfontbold', sans-serif;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+
+}
+
 .option img{
   margin-top: 2%;
   height: 24px;
@@ -261,7 +276,6 @@ legend{
   margin-left: 10%;
   align-self: start;
   margin-bottom: 20px;
-  font-weight: 700;
 }
 .addproj{
   background-color: rgb(218, 215, 215);
@@ -269,8 +283,8 @@ legend{
   font-size: 30px;
 }
 .addproj:hover{
-  transform: scale(120%);
-  transition-duration: 0.5s;
+  transform: scale(110%);
+  transition-duration: 0.05s;
   cursor:pointer;
 }
 .submit:hover{
@@ -288,7 +302,6 @@ legend{
   width: 100px;
 }
 .cname{
-  display: none;
   border-radius: 6px;
 }
 
@@ -300,11 +313,11 @@ legend{
   background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
   height: 35px;
   border-radius: 0px 5px 5px 0px;
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
 }
 
 #projname{
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
   all: unset;
   border: none;
   padding-left: 8px;
@@ -319,6 +332,7 @@ legend{
 
 .addtask:hover{
   cursor: pointer;
+  transition-duration: 0.5s;
   transform: scale(110%);
 }
 .addtask{
@@ -326,7 +340,6 @@ legend{
   font-weight: 550;
   font-size: 30px;
   text-align: center;
-  visibility: hidden;
 }
 .showtask{
   visibility: visible;
@@ -335,7 +348,6 @@ input:focus,  textarea:focus{
   border: 1px solid black;
 }
 .optionpane{
-  visibility: hidden;
   position: absolute;
   margin-top: 10vh;
   height: 400px;
@@ -407,7 +419,7 @@ input:focus,  textarea:focus{
 }
 .addtasker{
   background-color: rgb(255, 255, 255);
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
 }
 #formdiv5{
   margin-bottom: 40px;
@@ -444,7 +456,7 @@ input:focus,  textarea:focus{
   transform: scale(105%);
 }
 .pageno{
-  font-family: myfont;
+  font-family: 'myfont', sans-serif;
 }
 .dates2{
   position: absolute;
@@ -528,7 +540,6 @@ animation: flip-horizontal-bottom 0.4s ease-in-out both;
   background-color: black;
   left: 0%;
   border-radius: 10px;
-  background-color: white;
   box-shadow: 1px 1px 1px 1px black;
   padding-left: 15px;
   font-size: 14px;

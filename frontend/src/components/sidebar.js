@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 
 const Sidebar = ({ projects, addProject, selectProject, handleTabChange, currentTab }) => {
-  const [isFormVisible, setFormVisible] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
   const [newProjectName, setNewProjectName] = useState('');
 
   const toggleAddForm = () => {
-    setFormVisible(!isFormVisible);
+    setIsFormVisible((prev) => !prev);
+    console.log("ss")
   };
 
   const handleAddProject = (e) => {
@@ -15,38 +16,39 @@ const Sidebar = ({ projects, addProject, selectProject, handleTabChange, current
       addProject(newProjectName.trim());
       setNewProjectName('');
       toggleAddForm();
+
     }
   };
 
   return (
     <div className="left">
       <div className="header">
-        <a href="#" className="menyu">Menu</a>
+        <button className="headertext">Menu</button>
       </div>
       
       {/* Navigation Options */}
-      <div className={`option start ${currentTab === 'alltasks' ? 'selectedtab' : ''}`} id="alltasks" onClick={() => handleTabChange('alltasks')}>
+      <div className={`option ${currentTab === 'alltasks' ? 'selectedtab' : ''}`} id="alltasks" onClick={() => handleTabChange('alltasks')}>
         <img src="/images/1.png" className="icon" alt="All Tasks" />
-        <a href="#" className="iconname">All</a>
+        <button className="iconname">All</button>
       </div>
       <div className={`option ${currentTab === 'favtasks' ? 'selectedtab' : ''}`} id="star" onClick={() => handleTabChange('favtasks')}>
         <img src="/images/8.png" className="icon" alt="Favorited" />
-        <a href="#" className="iconname">Favorited</a>
+        <button className="iconname">Favorited</button>
       </div>
       <div className="option" id="na1">
         <img src="/images/7.png" className="icon" alt="N/A" />
-        <a href="#" className="iconname">N/A</a>
+        <button className="iconname">N/A</button>
       </div>
       <div className="option" id="na2">
         <img src="/images/7.png" className="icon" alt="N/A" />
-        <a href="#" className="iconname">N/A</a>
+        <button className="iconname">N/A</button>
       </div>
       
       <div className="bar"></div>
       
       {/* Projects Section */}
       <div className="header">
-        <a href="#" className="iconname">Projects</a>
+        <button className="headertext">Projects</button>
       </div>
       
       {/* Dynamic Project List */}

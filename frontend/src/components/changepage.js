@@ -4,7 +4,7 @@ import React from 'react';
 const Pagination = () => (
   <div className="pages">
     <button className="pageback"></button>
-    <a a href="#" className="pageno">1</a>
+    <button className="pageno">1</button>
     <button className="pageforward"></button>
   </div>
 );
